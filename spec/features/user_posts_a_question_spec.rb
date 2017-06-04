@@ -9,9 +9,6 @@
 # - I must be presented with errors if I fill out the form incorrectly
 
 
-
-
-
 require 'rails_helper'
 
 feature "posts a question" do
@@ -29,7 +26,7 @@ feature "posts a question" do
     expect(page).to have_content(mydescription)
   end
 
-  scenario "user unsuccessfully due to insufficient form information" do
+  scenario "user unsuccessfully posts question due to insufficient form information" do
     # error for too short of a title and description
     myquestion = "Hello?"
     mydescription = "Too short"
@@ -38,9 +35,19 @@ feature "posts a question" do
     fill_in 'Title', with: myquestion
     fill_in 'Description', with: mydescription
     click_button('Create Question')
-    # myquestion = Question.create(title: "Whats your favorite color?", description: "I'd like to know your favorite color, mine is red.")
-    # visit questions_path
-    # expect(page).to have_content(myquestion.title)
+
+    expect(page).to have_content("Title is too short (minimum is 20 characters)")
+    expect(page).to have_content("Description is too short (minimum is 50 characters)")
+
+  end
+
+  scenario "user clicks create question button without filling in any information" do
+    visit questions_path
+    click_link "Post a Question"
+    click_button('Create Question')
+
+    expect(page).to have_content("Title can't be blank")
+    expect(page).to have_content("Description can't be blank")
 
   end
 end
