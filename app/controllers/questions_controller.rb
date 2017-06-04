@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def new
+    @question = Question.new
+  end
+
   # continue here, add all controllers for Questions
   # routes to Controllers, add in the specific functionality inside each method
   # model for questions is already created
