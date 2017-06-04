@@ -23,14 +23,21 @@ feature "posts a question" do
     click_link "Post a Question"
     fill_in 'Title', with: myquestion
     fill_in 'Description', with: mydescription
+    click_button('Create Question')
 
     expect(page).to have_content(myquestion)
     expect(page).to have_content(mydescription)
   end
 
-  xscenario "user unsuccessfully due to insufficient form information" do
+  scenario "user unsuccessfully due to insufficient form information" do
     # error for too short of a title and description
-
+    myquestion = "Hello?"
+    mydescription = "Too short"
+    visit questions_path
+    click_link "Post a Question"
+    fill_in 'Title', with: myquestion
+    fill_in 'Description', with: mydescription
+    click_button('Create Question')
     # myquestion = Question.create(title: "Whats your favorite color?", description: "I'd like to know your favorite color, mine is red.")
     # visit questions_path
     # expect(page).to have_content(myquestion.title)

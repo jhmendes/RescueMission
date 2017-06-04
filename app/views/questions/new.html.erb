@@ -1,0 +1,16 @@
+<%= form_for @question, url: {action: "create"}, html: {class:
+  "new_question"} do |f| %>
+  <div class="Title">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="Description">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

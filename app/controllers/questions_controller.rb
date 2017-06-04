@@ -11,8 +11,25 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def create
+  @question = Question.new(question_params)
+
+  if @question.save
+    redirect_to @question, notice: 'Your question was successfully posted!.'
+  else
+    render action: 'new'
+  end
+
+end
+
+private
+  def question_params
+    params.require(:question).permit(:title, :description)
+  end
+
+end
+
   # continue here, add all controllers for Questions
   # routes to Controllers, add in the specific functionality inside each method
   # model for questions is already created
   # create the view page for other pages, and forms needed.
-end
