@@ -7,4 +7,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  # continue here, add all controllers for Questions
+  # routes to Controllers, add in the specific functionality inside each method
+  # model for questions is already created
+  # create the view page for other pages, and forms needed.
 end
