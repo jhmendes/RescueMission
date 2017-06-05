@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   @question = Question.new(question_params)
 
   if @question.save
-    redirect_to @question, notice: 'Your question was successfully posted!.'
+    redirect_to @question, notice: "Your question was successfully posted!."
   else
     render action: 'new'
   end

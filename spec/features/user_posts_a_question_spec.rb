@@ -15,6 +15,8 @@ feature "posts a question" do
   scenario "user successfully posts a question" do
     myquestion = 'What are you favorite aspects of the Ruby programming language?'
     mydescription = 'I really enjoy the simplcity of the language and how fluid it looks when written well.'
+    # success = "Your question was successfully posted!."
+    # ask cary about this
 
     visit questions_path
     click_link "Post a Question"
@@ -24,6 +26,8 @@ feature "posts a question" do
 
     expect(page).to have_content(myquestion)
     expect(page).to have_content(mydescription)
+    # expect(page).to have_content(success)
+    #ask cary about this
   end
 
   scenario "user unsuccessfully posts question due to insufficient form information" do
