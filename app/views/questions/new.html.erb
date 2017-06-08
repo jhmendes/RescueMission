@@ -1,3 +1,6 @@
+<h1>Ask a Question!</h1>
+<h2>Fill out the form below to post a new question</h2>
+
 <%= form_for(@question) do |f| %>
 
   <% if @question.errors.any? %>
@@ -27,3 +30,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back to Home', questions_path %>

@@ -1,4 +1,7 @@
-<h1>Questions</h1>
+<h1>Welcome to Launch Overflow!</h1>
+
+<h1>Questions:</h1>
+<h2>Click on any question to view its answers</h2>
 
 <ul>
   <% @questions.each do |question| %>
@@ -6,4 +9,6 @@
   <% end %>
 </ul>
 
+
+<h2>Got a question? Click the link below!</h2>
 <%= link_to 'Post a Question', new_question_path %>
