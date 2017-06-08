@@ -1,13 +1,13 @@
-
+require 'pry'
 class QuestionsController < ApplicationController
   def index
     @questions = Question.order(:created_at)
-    
+
   end
 
   def show
     @question = Question.find(params[:id])
-
+    binding.pry
   end
 
   def new
