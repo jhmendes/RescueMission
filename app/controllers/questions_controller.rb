@@ -7,12 +7,15 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    binding.pry
+   	@answer = Answer.new
+    # whats is answer.new doing?
+   	@answers = Answer.where(question_id: @question).find_each
+    # binding.pry
   end
 
   def new
     @question = Question.new
-    @answer = Answer.new
+    # @answer = Answer.new
   end
 
   def create
@@ -23,6 +26,7 @@ class QuestionsController < ApplicationController
   else
     render action: 'new'
   end
+
 
 end
 

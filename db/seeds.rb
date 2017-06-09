@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# rake db drop
+# rake db create
+# rake db migrate
+# rake db test prepare
+# rake db seed
