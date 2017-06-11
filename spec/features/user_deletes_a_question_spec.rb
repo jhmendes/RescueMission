@@ -30,7 +30,7 @@ feature "user deletes a question" do
     visit questions_path
     click_link "Is Ruby difficult to learn?"
     click_button"Delete this Question"
-    # the final page should be the show page or full questions page
+    
     expect(page).not_to have_content("Is Ruby difficult to learn")
   end
 
