@@ -6,26 +6,29 @@ class AnswersController < ApplicationController
   end
 
   def show
-
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
   end
 
   def new
     @question = Question.find(params[:question_id])
     @answer = Answer.new
-    # 
+
   end
 
   def create
     @question = Question.find(params[:question_id])
-        @answer = Answer.new(answer_params)
-        @answer.question = @question
-        binding.pry
+    @answer = Answer.new(answer_params)
+    @answer.question = @question
+
         if @answer.save
           flash[:notice] = "Answer saved successfully."
+
           redirect_to question_path(@question)
         else
-          flash[:alert] = "Failed to save answer."
-          redirect_to question_path(@question)
+          flash[:notice] = "Failed to save answer."
+          render :new
+          # its definitely something here that isn't connecting!
         end
   end
 

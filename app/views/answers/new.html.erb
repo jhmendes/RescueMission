@@ -1,0 +1,28 @@
+
+<%= form_for [@question, @answer] do |f| %>
+
+<% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this question from being posted:</h2>
+
+    <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <div class="Answer">
+
+    <%= f.label :description, 'Answer' %><br />
+    <%= f.text_field :description %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Submit Answer" %>
+
+  </div>
+<% end %>
