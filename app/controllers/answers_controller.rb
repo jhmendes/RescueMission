@@ -28,7 +28,6 @@ class AnswersController < ApplicationController
         else
           flash[:notice] = "Failed to save answer."
           render :new
-          # its definitely something here that isn't connecting!
         end
   end
 

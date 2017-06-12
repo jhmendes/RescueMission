@@ -54,8 +54,3 @@ private
   end
 
 end
-
-  # continue here, add all controllers for Questions
-  # routes to Controllers, add in the specific functionality inside each method
-  # model for questions is already created
-  # create the view page for other pages, and forms needed.

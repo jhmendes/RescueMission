@@ -8,9 +8,6 @@
 # - I must be presented with errors if I fill out the form incorrectly
 # - I must be able to get to the edit page from the question details page
 
-
-
-
 require 'rails_helper'
 
 feature "user edits a question" do
@@ -25,7 +22,7 @@ feature "user edits a question" do
     fill_in "Title", with: updated_title
     fill_in "Description", with: updated_description
     click_button 'Update Question'
-    # the final page should be the show page or full questions page
+
     expect(page).to have_content(updated_title)
     expect(page).to have_content(updated_description)
 

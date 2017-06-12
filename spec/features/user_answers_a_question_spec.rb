@@ -7,8 +7,6 @@
 # - I must be on the question detail page
 # - I must provide a description that is at least 50 characters long
 # - I must be presented with errors if I fill out the form incorrectly
-require 'pry'
-
 
 require 'rails_helper'
 
@@ -36,7 +34,6 @@ feature "user answers a question" do
     click_link "Answer This Question"
     fill_in "Answer", with: user_answer
     click_button "Submit Answer"
-    # binding.pry
     expect(page).to have_content("Description is too short (minimum is 50 characters)")
 
 

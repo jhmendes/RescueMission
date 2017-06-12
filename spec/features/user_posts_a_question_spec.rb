@@ -26,12 +26,10 @@ feature "posts a question" do
 
     expect(page).to have_content(myquestion)
     expect(page).to have_content(mydescription)
-    # expect(page).to have_content(success)
-    #ask cary about this
   end
 
   scenario "user unsuccessfully posts question due to insufficient form information" do
-    # error for too short of a title and description
+    
     myquestion = "Hello?"
     mydescription = "Too short"
     visit questions_path
